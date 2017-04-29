@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+
+
+    <script type="text/javascript" src="app/scripts/wd.js"></script>
+    <script src="app/scripts/modal.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+    <link href="app/modal.css" rel="stylesheet" type="text/css"/>
+    <link href="app/main.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="page_container">
+    <div class="page1">
+        <!--
+        <div class="main_container main_back_design_1">
+
+            <div class="place_name">
+
+            </div>
+        </div>
+        -->
+        <div class="img_res_contain">
+            <img src="app/images/Front_cover_smaller.png"/>
+        </div>
+        <div class="btn_container">
+            <!-- <div class="left_btn inline_class"> < Previous</div> -->
+            <div class="RSVP_btn inline_class"><img src="app/images/RSVP.png" class="rsvp_btn" data-target="get_rsvp" data-toggle="modal"/></div>
+            <div class="right_btn inline_class" id="next_btn"> Next > </div>
+        </div>
+    </div>
+    <div class="page2" style="display: none">
+        <!--
+        <div class="main_container main_back_design_2">
+
+            <div class="place_name">
+
+            </div>
+        </div>
+        -->
+        <div class="img_res_contain">
+            <img src="app/images/2nd-page.png"/>
+        </div>
+        <div class="btn_container">
+            <div class="left_btn inline_class" id="prvs_btn"> < Previous</div>
+            <div class="RSVP_btn inline_class"><img src="app/images/RSVP.png" class="rsvp_btn" data-target="get_rsvp" data-toggle="modal"/></div>
+            <!-- <div class="right_btn inline_class"> Next > </div> -->
+        </div>
+    </div>
+</div>
+
+<!--
+<div class="page3">
+    <div class="main_container">
+
+        <div class="place_name">
+
+        </div>
+    </div>
+    <div class="btn_container">
+        <div class="left_btn inline_class"> < Previous</div>
+        <div class="RSVP_btn inline_class"><img src="images/RSVP.png" class="rsvp_btn" data-target="get_rsvp" data-toggle="modal"/></div>
+        <div class="right_btn inline_class"> Next > </div>
+    </div>
+</div>
+-->
+
+<div id="get_rsvp" class="modal">
+    <div class="modal-window">
+        <span class="close" data-dismiss="modal">&times;</span>
+        <div class="rsvp_header_style">
+            <h4 class="rsvp_header">Please select the events</h4>
+        </div>
+        <div class="events_name left_portion">
+            <div id="eve_wed" class="chkbox_container"><i id="chkmark_icon" class="display_none_class custom_icon icon-circle"></i><span class="chkbox"  id="wedding_rsvp"></span><span class="chk_words"> Wedding Ceremony </span></div>
+
+            <!--
+            <div id="eve_j" class="chkbox_container"><i class="display_none_class custom_icon icon-circle"></i><span class="chkbox" id="jini_eve_ssvp"></span><span class="chk_words"> Jinali GrahShantak </span></div>
+            <div id="eve_h" class="chkbox_container"><i class="display_none_class custom_icon icon-circle"></i><span class="chkbox" id="harsh_eve_rsvp"></span><span class="chk_words"> Harshil GrahShantak </span></div>
+            -->
+        </div>
+        <div class="guest_details right_portion">
+            <div class="">Name : <span><input type="input" id="guest_name" class="nm_input_style"></span></div>
+            <div class="no_of_people">
+                No. of People : <span class="ppl_less"> - </span><input type="input" class="ppl_count" value="0"><span class="ppl_more"> + </span>
+            </div>
+            <div class="no_of_chld">
+                No. of Children : <span class="chld_less"> - </span><input type="input" class="child_count" value="0"><span class="chld_more"> + </span>
+            </div>
+        </div>
+        <div class="txt_area_wish">
+            <span class="wsh_message_title">Wishes: </span><textarea id="wish_msg" class="txt_area_style"></textarea>
+        </div>
+        <div class="submit_rsvp_btn">
+            <div class="submit_btn_style"><img src="app/images/YES_RSVP.png" class="submit_btn"/></div>
+            <div class="submit_btn_style"><img src="app/images/Nope_RSVP.png" class="submit_btn_no"/></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

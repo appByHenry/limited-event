@@ -1,0 +1,264 @@
+body {
+    font-family: "Lucida Grande" , "Arial", "sans-serif";
+}
+
+.display_none_class{
+    visibility: hidden;
+}
+.display_block_class{
+    display: block;
+}
+/*==================== Responsive design=======================*/
+
+@media only screen and (min-width: 320px) and (max-width: 800px) {
+    .page_container{
+        width: 100%;
+    }
+    .right_portion {
+        display: block !important;
+        width: 100% !important;
+        vertical-align: top;
+        padding-left: 0px !important;
+        padding-top: 0px !important;
+
+    }
+    .left_portion {
+        display: block !important;
+        width: 100% !important;
+    }
+    .submit_btn_style{
+        display: block !important;
+    }
+    .modal-window {
+        width: 275px !important;
+    }
+    img.submit_btn, img.submit_btn_no {
+        cursor: pointer;
+        width: 100% !important;
+    }
+}
+@media only screen and (min-width: 801px) {
+    .page_container{
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .right_portion {
+        display: inline-block;
+        width: 40%;
+        vertical-align: top;
+        padding-left: 40px;
+        padding-top: 20px;
+    }
+    .left_portion {
+        display: inline-block;
+        width: 35%;
+    }
+    .submit_btn_style{
+        display: inline-block;
+    }
+    .modal-window {
+        width: 700px;
+    }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 800px) {
+    .page_container{
+        width: 100%;
+    }
+    .right_portion {
+        display: block !important;
+        width: 100% !important;
+        vertical-align: top;
+        padding-left: 0px !important;
+        padding-top: 0px !important;
+
+    }
+    .left_portion {
+        display: block !important;
+        width: 100% !important;
+    }
+    .submit_btn_style{
+        display: block !important;
+    }
+    .modal-window {
+        width: 275px !important;
+    }
+    img.submit_btn, img.submit_btn_no {
+        cursor: pointer;
+        width: 100% !important;
+    }
+}
+
+@media only screen and (min-device-width: 801px) {
+    .page_container{
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .right_portion {
+        display: inline-block;
+        width: 40%;
+        vertical-align: top;
+        padding-left: 40px;
+        padding-top: 20px;
+    }
+    .left_portion {
+        display: inline-block;
+        width: 35%;
+    }
+    .submit_btn_style{
+        display: inline-block;
+    }
+    .modal-window {
+        width: 700px;
+    }
+}
+/*================ Old style of image ============*/
+/*
+.main_container{
+    max-width: 750px;
+    margin: 0 auto;
+    display: block;
+
+    border: 1px solid red;
+
+
+
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-clip: padding-box;
+    width: 100%;
+    height: 750px;
+}
+.main_back_design_1{
+    background-image: url('images/Front_cover_smaller.png');
+}
+.main_back_design_2{
+    background-image: url('images/2nd-page.png');
+}
+*/
+.img_res_contain {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.img_res_contain img {
+    width: 100%;
+    height: auto;
+}
+
+/*============================================================*/
+.btn_container{
+    max-width: 750px;
+    margin: 10px auto;
+    text-align: center;
+}
+
+.inline_class{
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.RSVP_btn.inline_class {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+img.rsvp_btn {
+    cursor: pointer;
+}
+.left_btn, .right_btn{
+    color: #cf312b;
+    font-size: 1.2rem;
+}
+span.chkbox {
+    border: 2px solid #c71313;
+    padding: 15px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+}
+div.chkbox_container {
+    margin: 20px 5px;
+    cursor: pointer;
+}
+.chk_words{
+    margin-left: 40px;
+}
+i.custom_icon.icon-circle {
+    position: relative;
+    left: 28px;
+    font-size: 1.5rem;
+    /* bottom: 112px; */
+    top: 5px;
+    /* text-align: right; */
+    color: #9e6f33;
+    cursor: pointer;
+
+}
+
+
+input#guest_name {
+    width: 200px;
+    border-radius: 5px;
+    height: 18px;
+    background-color: #fff7da;
+}
+
+.ppl_count, .child_count {
+    width: 30px;
+    border-radius: 5px;
+    height: 25px;
+    background-color: #fff7da;
+    margin: 0px 2px;
+    font-size: 13px;
+    text-align: center;
+}
+
+span.ppl_less, span.ppl_more, span.chld_less, span.chld_more  {
+    border: 2px solid silver;
+    border-radius: 5px;
+    padding: 5px;
+    /* margin-right: 5px; */
+    vertical-align: middle;
+    text-align: center;
+    display: inline-block;
+    width: 20px;
+    font-size: 1rem;
+    font-weight: 900;
+    cursor: pointer;
+
+}
+
+.no_of_people, .no_of_chld{
+    margin-top: 15px;
+}
+.submit_rsvp_btn {
+    text-align: center;
+    margin: 15px 0px;
+}
+img.submit_btn, img.submit_btn_no {
+    cursor: pointer;
+}
+
+.rsvp_header_style{
+    text-align: center;
+}
+h4.rsvp_header {
+    font-size: 1.4rem;
+    color: goldenrod;
+}
+
+textarea#wish_msg {
+    width: 70%;
+    height: 50px;
+}
+span.wsh_message_title {
+    vertical-align: top;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.txt_area_wish {
+    margin-top: 20px;
+}
