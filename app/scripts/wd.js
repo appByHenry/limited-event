@@ -170,7 +170,7 @@ $(function () {
             type: 'POST',
             contentType: "application/json; charset=utf-8",
             //url: 'https://stok-dashboard.herokuapp.com/UpdateusrConfig',
-            url: 'http://localhost:3000/'+api_url,
+            url: 'https://wd-app-db.herokuapp.com/'+api_url,
             data: Dbdata,
             dataType: "json",
             crossDomain: true,
