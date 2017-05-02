@@ -32,7 +32,7 @@ $(function () {
     var get_userEmail = $.urlParam('_guestKey');
     //var get_userEmail = "aHJwYXRlbC4yNjNAZ21haWwuY29t";
     //var decodedString = "aHJwYXRlbC4yNjNAZ21haWwuY29t";
-    console.log("Getting user key: ",decodedString);
+    console.log("Getting user key: ",get_userEmail);
 
     $(document).on("click", ".chkbox_container", function () {
         console.log(this);
