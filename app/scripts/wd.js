@@ -165,7 +165,7 @@ $(function () {
         $.ajax({
             type: 'POST',
             contentType: "application/json; charset=utf-8",
-            url: 'https://localhost:3000/'+api_url,
+            url: 'https://wd-app-db.herokuapp.com/'+api_url,
             data: Dbdata,
             dataType: "json",
             crossDomain: true,
@@ -292,7 +292,7 @@ $(function () {
             dataType: "json",
             data: '',
             contentType: "application/json; charset=utf-8",
-            url: 'https://localhost:3000/getspecificGuest/' + g_usrky,
+            url: 'https://wd-app-db.herokuapp.com/getspecificGuest/' + g_usrky,
             complete: function () {
 
                 //console.log('to check key is there or not in json.');
