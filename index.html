@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Wedding invitation</title>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-
-
+    <script type="text/javascript" src="app/scripts/jquery.base64.js"></script>
     <script type="text/javascript" src="app/scripts/wd.js"></script>
     <script src="app/scripts/modal.js"></script>
 
@@ -19,14 +18,6 @@
 <body>
 <div class="page_container">
     <div class="page1">
-        <!--
-        <div class="main_container main_back_design_1">
-
-            <div class="place_name">
-
-            </div>
-        </div>
-        -->
         <div class="img_res_contain">
             <img src="app/images/Front_cover_smaller.png"/>
         </div>
@@ -56,21 +47,6 @@
     </div>
 </div>
 
-<!--
-<div class="page3">
-    <div class="main_container">
-
-        <div class="place_name">
-
-        </div>
-    </div>
-    <div class="btn_container">
-        <div class="left_btn inline_class"> < Previous</div>
-        <div class="RSVP_btn inline_class"><img src="images/RSVP.png" class="rsvp_btn" data-target="get_rsvp" data-toggle="modal"/></div>
-        <div class="right_btn inline_class"> Next > </div>
-    </div>
-</div>
--->
 
 <div id="get_rsvp" class="modal">
     <div class="modal-window">
@@ -80,11 +56,6 @@
         </div>
         <div class="events_name left_portion">
             <div id="eve_wed" class="chkbox_container"><i id="chkmark_icon" class="display_none_class custom_icon icon-circle"></i><span class="chkbox"  id="wedding_rsvp"></span><span class="chk_words"> Wedding Ceremony </span></div>
-
-            <!--
-            <div id="eve_j" class="chkbox_container"><i class="display_none_class custom_icon icon-circle"></i><span class="chkbox" id="jini_eve_ssvp"></span><span class="chk_words"> Jinali GrahShantak </span></div>
-            <div id="eve_h" class="chkbox_container"><i class="display_none_class custom_icon icon-circle"></i><span class="chkbox" id="harsh_eve_rsvp"></span><span class="chk_words"> Harshil GrahShantak </span></div>
-            -->
         </div>
         <div class="guest_details right_portion">
             <div class="">Name : <span><input type="input" id="guest_name" class="nm_input_style"></span></div>

@@ -49,3 +49,6 @@
     display: block;
 }
 
+.display_none_class{
+    visibility: hidden;
+}

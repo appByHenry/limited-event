@@ -5,8 +5,6 @@
 
 $(function () {
     var encodedString = "";
-    var Base64={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",encode:function(e){var t="";var n,r,i,s,o,u,a;var f=0;e=Base64._utf8_encode(e);while(f<e.length){n=e.charCodeAt(f++);r=e.charCodeAt(f++);i=e.charCodeAt(f++);s=n>>2;o=(n&3)<<4|r>>4;u=(r&15)<<2|i>>6;a=i&63;if(isNaN(r)){u=a=64}else if(isNaN(i)){a=64}t=t+this._keyStr.charAt(s)+this._keyStr.charAt(o)+this._keyStr.charAt(u)+this._keyStr.charAt(a)}return t},decode:function(e){var t="";var n,r,i;var s,o,u,a;var f=0;e=e.replace(/[^A-Za-z0-9+/=]/g,"");while(f<e.length){s=this._keyStr.indexOf(e.charAt(f++));o=this._keyStr.indexOf(e.charAt(f++));u=this._keyStr.indexOf(e.charAt(f++));a=this._keyStr.indexOf(e.charAt(f++));n=s<<2|o>>4;r=(o&15)<<4|u>>2;i=(u&3)<<6|a;t=t+String.fromCharCode(n);if(u!=64){t=t+String.fromCharCode(r)}if(a!=64){t=t+String.fromCharCode(i)}}t=Base64._utf8_decode(t);return t},_utf8_encode:function(e){e=e.replace(/rn/g,"n");var t="";for(var n=0;n<e.length;n++){var r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r)}else if(r>127&&r<2048){t+=String.fromCharCode(r>>6|192);t+=String.fromCharCode(r&63|128)}else{t+=String.fromCharCode(r>>12|224);t+=String.fromCharCode(r>>6&63|128);t+=String.fromCharCode(r&63|128)}}return t},_utf8_decode:function(e){var t="";var n=0;var r=c1=c2=0;while(n<e.length){r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r);n++}else if(r>191&&r<224){c2=e.charCodeAt(n+1);t+=String.fromCharCode((r&31)<<6|c2&63);n+=2}else{c2=e.charCodeAt(n+1);c3=e.charCodeAt(n+2);t+=String.fromCharCode((r&15)<<12|(c2&63)<<6|c3&63);n+=3}}return t}}
-    encodedString = Base64.encode("hrpatel.263@gmail.com").toString('ascii');
 
     Storage.prototype.setObject = function (key, value) {
         //value = JSON.stringify(value);
@@ -31,9 +29,9 @@ $(function () {
     }
 
     // In actual application I have to read the url parameter
-   // var get_userEmail = $.urlParam('_guestKey');
-    var get_userEmail = "aHJwYXRlbC4yNjNAZ21haWwuY29t";
-    var decodedString = "aHJwYXRlbC4yNjNAZ21haWwuY29t";
+    var get_userEmail = $.urlParam('_guestKey');
+    //var get_userEmail = "aHJwYXRlbC4yNjNAZ21haWwuY29t";
+    //var decodedString = "aHJwYXRlbC4yNjNAZ21haWwuY29t";
     console.log("Getting user key: ",decodedString);
 
     $(document).on("click", ".chkbox_container", function () {
@@ -158,8 +156,6 @@ $(function () {
             storeInDb(can_submit);
         }
 
-
-
     });
     function saveNewGuest(g_key, g_data, api_url) {
         var Dbdata = {"guestkey": g_key, "guestData": g_data};
@@ -169,8 +165,7 @@ $(function () {
         $.ajax({
             type: 'POST',
             contentType: "application/json; charset=utf-8",
-            //url: 'https://stok-dashboard.herokuapp.com/UpdateusrConfig',
-            url: 'https://wd-app-db.herokuapp.com/'+api_url,
+            url: 'https://localhost:3000/'+api_url,
             data: Dbdata,
             dataType: "json",
             crossDomain: true,
@@ -282,22 +277,54 @@ $(function () {
 
             localStorage.setObject("guset_details", "");
 
-            // Data set in local storage.
-            //var jsonObj_gst_email = JSON.stringify(get_userEmail);
-            localStorage.setObject("guset_details", get_userEmail);
-            var save_new_url = "storeNewdata";
-            saveNewGuest(get_userEmail, gst_rsvp, save_new_url);
+            toCheckDataInStorage(gst_rsvp);
+
         }
         console.log(gst_rsvp);
     }
 
+    function toCheckDataInStorage(getGuestObj) {
+        // Getting from query string
+        var g_usrky = get_userEmail;
+        //var g_usrky = "aHJwYXRlbC4yNjNAZ21haWwuY29t";
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            data: '',
+            contentType: "application/json; charset=utf-8",
+            url: 'https://localhost:3000/getspecificGuest/' + g_usrky,
+            complete: function () {
+
+                //console.log('to check key is there or not in json.');
+                $('.main_btns').removeClass('none-display-class');
+            },
+            success: function (res) {
+                //console.log(res.g_name);
+                if(res)
+                {
+                    if(res.g_name)
+                    {
+                        console.log("Found the value in database");
+                        var save_new_url = "updateExistingdata";
+                        saveNewGuest(g_usrky, getGuestObj, save_new_url);
+                    }
+                }
+            },
+            error: function () {
+                console.log("data not found");
+                var save_new_url = "storeNewdata";
+                localStorage.setObject("guset_details", g_usrky);
+                saveNewGuest(g_usrky, getGuestObj, save_new_url);
+            },
+        });
+    }
     // Click on not button
     $(document).on("click", ".submit_btn_no", function () {
         console.log(this);
         // Input value of people
         var can_not_submit = false;
         storeInDb(can_not_submit);
-
+        $("#get_rsvp").removeClass("open");
     });
 
 });
