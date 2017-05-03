@@ -188,7 +188,7 @@ $(function () {
     var gst_rsvp = {};
     function storeInDb(get_submit_flag) {
         var get_local_storage_guest = localStorage.getObject("guset_details");
-
+        var emptyName = false;
         if(get_submit_flag)
         {
             console.log("Calling mongo db");
@@ -208,7 +208,8 @@ $(function () {
                 }
                 else
                 {
-                    gst_rsvp["name"] = "NA";
+                    emptyName = true;
+                    //gst_rsvp["name"] = "NA";
                 }
 
                 var people_count = $(".ppl_count").val();
@@ -226,6 +227,10 @@ $(function () {
                 {
                     gst_rsvp["wishes"] = "NA";
                 }
+            }
+            else
+            {
+                $("#emailNotValid").trigger("click");
             }
             // Closing the model dialog
             $("#get_rsvp").removeClass("open");
@@ -247,7 +252,8 @@ $(function () {
             }
             else
             {
-                gst_rsvp["name"] = "NA";
+                emptyName = true;
+                //gst_rsvp["name"] = "NA";
             }
 
             gst_rsvp["no_ppl"] = "NA";
@@ -264,22 +270,30 @@ $(function () {
             }
         }
 
-        if(get_local_storage_guest)
+        if(emptyName)
         {
-            // Local storage is there so update the values.
-            var update_url = "updateExistingdata";
-            saveNewGuest(get_local_storage_guest, gst_rsvp, update_url);
+            $("#emptyName").trigger("click");
         }
         else
         {
-            // No local storage so insert new value
-            localStorage.removeItem("guset_details");
+            if(get_local_storage_guest)
+            {
+                // Local storage is there so update the values.
+                var update_url = "updateExistingdata";
+                saveNewGuest(get_local_storage_guest, gst_rsvp, update_url);
+            }
+            else
+            {
+                // No local storage so insert new value
+                localStorage.removeItem("guset_details");
 
-            localStorage.setObject("guset_details", "");
+                //localStorage.setObject("guset_details", "");
 
-            toCheckDataInStorage(gst_rsvp);
+                toCheckDataInStorage(gst_rsvp);
 
+            }
         }
+
         console.log(gst_rsvp);
     }
 
