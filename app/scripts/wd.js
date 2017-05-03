@@ -175,7 +175,7 @@ $(function () {
             },
             success: function (res) {
                 console.log(res);
-
+                $("#rsvpdone").trigger("click");
             },
             error: function () {
                 // Data not found in json want to offer for new user.
