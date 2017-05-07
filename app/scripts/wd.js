@@ -100,6 +100,7 @@ $(function () {
         }
     });
 
+
     $(document).on("click", ".rsvp_btn", function () {
         console.log(this);
         $(".ppl_count").attr("value","0");
