@@ -52,6 +52,17 @@ $(function () {
         }
     });
 
+    $('.close_mobile').on('touchstart click', function(){
+        /* do something... */
+        console.log(this);
+        $(".modal").removeClass("open");
+    });
+
+    $(document).on("click", ".close", function () {
+        console.log(this);
+        $(".modal").removeClass("open");
+    });
+
     $(document).on("click", ".ppl_more", function () {
         console.log(this);
         var x = 0;

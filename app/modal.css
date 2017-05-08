@@ -27,7 +27,7 @@
     width: 75%;
 }
 
-.close {
+.close, .close_mobile {
     position: absolute;
     top: 0;
     right: 0;
@@ -37,6 +37,9 @@
     font-size: 30px;
     line-height: 30px;
     text-align: center;
+}
+.close_mobile_border{
+    border: 1px solid silver;
 }
 
 .close:hover,
