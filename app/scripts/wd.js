@@ -233,10 +233,13 @@ $(function () {
                 if(guestname && guestname != "")
                 {
                     gst_rsvp["name"] = guestname;
+                    $("#guest_name").css("background-color","##fff7da");
                 }
                 else
                 {
                     emptyName = true;
+                    $("#guest_name").css("background-color","#f9733d");
+                    return;
                     //gst_rsvp["name"] = "NA";
                 }
 
